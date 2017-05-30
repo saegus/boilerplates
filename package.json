@@ -5,6 +5,7 @@
   "main": "src/app.jsx",
   "version": "0.0.1",
   "dependencies": {
+    "babel-eslint": "^7.2.3",
     "es5-shim": "^4.5.9",
     "es6-shim": "^0.35.3",
     "inferno": "^3.3.1",
