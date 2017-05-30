@@ -4,6 +4,8 @@ Saegus Inferno Boilerplate
 Mode d'emploi
 ----
 
+Il est fortement recommandé de mettre à jour `npm` à une version >=5.0.0 en faisant `npm upgrade -g npm`. Cela permettra entre autres de prendre avantage du `package-lock.json`.  
+
 Environnement de développement : `npm start` (`http://localhost:8080`)  
 Construction pour la production : `npm run build` (dossier de destination : `build`)
 
@@ -172,6 +174,7 @@ TODO
 * Utilisation concrète de `Http`
 * Exemple de Redux
 * Implémenter un exemple de "service worker" pour le contexte Progressive Web App
+* Dockeriser l'environnement de dev pour éviter les problèmes dûs à la différence entre les environnements
 * Ajouter le `manifest.json`
 * Formaliser les mixins de viewports/devices
 * Exemple de "server-side rendering"
