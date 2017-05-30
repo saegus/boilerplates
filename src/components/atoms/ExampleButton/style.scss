@@ -1,0 +1,46 @@
+@import 'variables';
+
+$font-family: $font-family--regular;
+$font-size: $font-size--regular;
+
+$background: none;
+$background--hover: $color--alt-background;
+
+$color: $color--text;
+$color--hover: $color--alt-text;
+$color--focus: $color--emphasis;
+
+$border: 1px solid $color--text;
+
+$padding: 1em 2em;
+
+$opacity: .75;
+$opacity--hover: 1;
+
+$transition: .2s ease-in-out; // You can override the global variables!
+
+.ExampleButton {
+  font-family: $font-family;
+  font-size: $font-size;
+  color: $color--text;
+  background: $background;
+  border: $border;
+  opacity: $opacity;
+  padding: $padding;
+  transition: background $transition, opacity $transition;
+
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover {
+    opacity: $opacity--hover;
+    background: $background--hover;
+    color: $color--hover;
+  }
+
+  &:focus {
+    border-color: $color--focus;
+    outline: none;
+  }
+}

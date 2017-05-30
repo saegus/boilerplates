@@ -1,0 +1,9 @@
+.ExampleMolecule {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+  &__label {
+    margin-right: 1em;
+  }
+}

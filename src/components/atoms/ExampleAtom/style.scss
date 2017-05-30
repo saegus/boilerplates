@@ -1,0 +1,27 @@
+@import 'variables';
+
+$background: $color--background;
+$background--hover: $color--alt-background;
+
+$size: 3em;
+
+.ExampleAtom {
+  background: $background;
+  height: $size;
+  width: $size;
+  transition: background $transition;
+
+  &__image-container {
+    border-radius: $size;
+    overflow: hidden;
+  }
+
+  &__image {
+    height: $size;
+    width: $size;
+  }
+
+  &:hover {
+    background: $background--hover;
+  }
+}
