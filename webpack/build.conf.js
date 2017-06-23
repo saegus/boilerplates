@@ -1,20 +1,20 @@
-const webpack = require('webpack'); // eslint-disable-line
-const webpackMerge = require('webpack-merge'); // eslint-disable-line
-const commonConfig = require('./common.conf');
-const path = require('path');
+const webpack = require("webpack"); // eslint-disable-line
+const webpackMerge = require("webpack-merge"); // eslint-disable-line
+const commonConfig = require("./common.conf");
+const path = require("path");
 
 module.exports = webpackMerge(commonConfig, {
-  devtool: 'source-map',
+  devtool: "source-map",
   output: {
-    path: path.resolve(__dirname, '..', 'build'),
-    filename: '[name].js',
-    chunkFilename: '[id].chunk.js',
+    path: path.resolve(__dirname, "..", "build"),
+    filename: "[name].js",
+    chunkFilename: "[id].chunk.js"
   },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
-      debug: false,
+      debug: false
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -27,16 +27,16 @@ module.exports = webpackMerge(commonConfig, {
         dead_code: true,
         evaluate: true,
         if_return: true,
-        join_vars: true,
+        join_vars: true
       },
       output: {
-        comments: false,
-      },
+        comments: false
+      }
     }),
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production'), // required for Inferno production build
-      },
-    }),
-  ],
+      "process.env": {
+        NODE_ENV: JSON.stringify("production") // required for Inferno production build
+      }
+    })
+  ]
 });

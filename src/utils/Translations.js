@@ -25,16 +25,18 @@
   ```
 */
 
-const language = window.localStorage.getItem('lang') || (
-  window.navigator.userLanguage ||
-  window.navigator.language ||
-  window.navigator.browserLanguage ||
-  window.navigator.systemLanguage
-).split('-')[0].toLowerCase();
+const language =
+  window.localStorage.getItem("lang") ||
+  (window.navigator.userLanguage ||
+    window.navigator.language ||
+    window.navigator.browserLanguage ||
+    window.navigator.systemLanguage)
+    .split("-")[0]
+    .toLowerCase();
 const bank = {};
 
-const setLanguage = (lang) => {
-  window.localStorage.setItem('lang', lang.toLowerCase());
+const setLanguage = lang => {
+  window.localStorage.setItem("lang", lang.toLowerCase());
   window.location.reload();
 };
 const getLanguage = () => language;
@@ -42,7 +44,7 @@ const tl = (id, ...args) => {
   let str = bank[id];
   if (args) {
     args.forEach((arg, i) => {
-      str = str.replace(new RegExp(`\\$${i + 1}`, 'g'), arg);
+      str = str.replace(new RegExp(`\\$${i + 1}`, "g"), arg);
     });
   }
   return str || id;

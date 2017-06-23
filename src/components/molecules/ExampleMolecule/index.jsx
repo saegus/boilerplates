@@ -1,9 +1,9 @@
-import Inferno from 'inferno';
+import Inferno from "inferno";
 
-import ExampleButton from 'components/atoms/ExampleButton';
-import ExampleAtom from 'components/atoms/ExampleAtom';
+import ExampleButton from "components/atoms/ExampleButton";
+import ExampleAtom from "components/atoms/ExampleAtom";
 
-import './style.scss';
+import "./style.scss";
 
 export default props =>
   <div className="ExampleMolecule">
@@ -11,5 +11,4 @@ export default props =>
     <ExampleButton {...props}>
       <ExampleAtom />
     </ExampleButton>
-  </div>
-;
+  </div>;

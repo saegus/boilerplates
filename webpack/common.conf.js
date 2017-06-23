@@ -1,50 +1,48 @@
-const webpack = require('webpack'); // eslint-disable-line
-const path = require('path');
-const ExtractText = require('extract-text-webpack-plugin'); // eslint-disable-line
+const webpack = require("webpack");
+const path = require("path");
+const ExtractText = require("extract-text-webpack-plugin");
 
 module.exports = {
-  target: 'web',
+  target: "web",
   stats: {
     chunks: false,
-    colors: true,
+    colors: true
   },
-  context: path.resolve(__dirname, '..', 'src'),
+  context: path.resolve(__dirname, "..", "src"),
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: [".js", ".jsx"],
     modules: [
-      path.resolve(__dirname, '..', 'node_modules'),
-      path.resolve(__dirname, '..', 'src'),
-    ],
+      path.resolve(__dirname, "..", "node_modules"),
+      path.resolve(__dirname, "..", "src")
+    ]
   },
   entry: {
-    polyfills: ['es5-shim', 'es6-shim'],
-    bundle: 'app.jsx',
+    polyfills: ["es5-shim", "es6-shim"],
+    bundle: "app.jsx"
   },
-  plugins: [
-    new ExtractText('styles.css'),
-  ],
+  plugins: [new ExtractText("styles.css")],
   module: {
     rules: [
       {
         test: /\.html$/,
         exclude: /node_modules/,
         use: {
-          loader: 'file-loader',
+          loader: "file-loader",
           query: {
-            name: '[name].html',
-          },
-        },
+            name: "[name].html"
+          }
+        }
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico|mp4|webm)(\?.+)?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'file-loader',
+          loader: "file-loader",
           query: {
-            context: path.resolve(__dirname, '..', 'src', 'assets'),
-            name: 'assets/[path][name].[ext]',
-          },
-        },
+            context: path.resolve(__dirname, "..", "src", "assets"),
+            name: "assets/[path][name].[ext]"
+          }
+        }
       },
       {
         test: /\.scss$/,
@@ -52,37 +50,42 @@ module.exports = {
         use: ExtractText.extract({
           use: [
             {
-              loader: 'css-loader',
+              loader: "css-loader",
               query: {
-                sourceMap: true,
-              },
+                sourceMap: true
+              }
             },
             {
-              loader: 'postcss-loader',
+              loader: "postcss-loader",
               query: {
-                sourceMap: true,
-              },
+                sourceMap: true
+              }
             },
             {
-              loader: 'sass-loader',
+              loader: "sass-loader",
               query: {
                 sourceMap: true,
-                includePaths: [
-                  path.resolve(__dirname, '..', 'src', 'scss'),
-                ],
-              },
-            },
-          ],
-        }),
+                includePaths: [path.resolve(__dirname, "..", "src", "scss")]
+              }
+            }
+          ]
+        })
       },
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
+        enforce: "pre",
         use: [
-          'babel-loader',
-          'eslint-loader',
-        ],
-      },
-    ],
-  },
+          {
+            loader: "babel-loader",
+            query: {
+              presets: ["es2015"],
+              plugins: ["inferno", "transform-object-rest-spread"]
+            }
+          },
+          "prettier-loader"
+        ]
+      }
+    ]
+  }
 };

@@ -28,7 +28,7 @@ Technologies
 
 * [Webpack 2](https://webpack.js.org/), constructeur de paquets de modules JavaScript permettant entre autres la minification du code, du *tree-shaking* (tente de débarasser le code des fonctionnalités non utilisées) et la gestion de modules JavaScript
 * [BrowserSync](https://www.browsersync.io/), recharge automatiquement les navigateurs ouverts sur la page de l'application à chaque build Webpack (NB: le Hot Module Replacement de Webpack n'est pas évident à mettre en place pour Inferno), répand un parcours (clics, inputs) vers tous les navigateurs
-* [ESLint](http://eslint.org/) ([AirBnB presets](https://github.com/airbnb/javascript)), vérification automatique de règles de JavaScript/JSX ES6
+* [Prettier](https://github.com/prettier/prettier), formatteur automatique de fichiers JavaScript/JSX ES6
 
 Guidelines
 ----
@@ -70,12 +70,7 @@ Guidelines
 ### JavaScript
 
 * JavaScript/JSX ES6+, gestion de dépendances grâce à des modules (syntaxe `import`/`export`)
-* Respect des [guidelines AirBnB](https://github.com/airbnb/javascript) : il est très conseillé d'installer l'extension ESLint pour l'éditeur de son choix ([Atom](https://atom.io/packages/linter-eslint), [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), [Sublime](https://github.com/roadhump/SublimeLinter-eslint), [...](http://eslint.org/)).
-* Il est parfois nécessaire de bypass ESLint en ajoutant un commentaire, expliquer pourquoi dans un commentaire avant la ligne :
-  ```js
-  // >> 0 for Math.floor(), safe because values <= 1000
-  const value = ((x + y) / z) >> 0; // eslint-disable-line no-bitwise
-  ```
+* Attention : le formattage du code se fait automatiquement à la sauvegarde grâce à **Prettier**.
 * Décomposer les propriétés d'un composant *stateless*
   ```jsx
   // Non décomposé
