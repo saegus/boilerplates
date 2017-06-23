@@ -8,7 +8,7 @@
     "start": "./node_modules/.bin/npm-run-all --parallel webpack-dev browser-sync",
     "webpack-dev": "./node_modules/.bin/webpack --config webpack/dev.conf.js --watch",
     "browser-sync": "./node_modules/.bin/browser-sync start --config browser-sync.json",
-    "build": "./node_modules/.bin/webpack --config webpack/build.conf.js -p"
+    "build": "./node_modules/.bin/webpack --config webpack/build.conf.js"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",

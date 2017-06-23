@@ -4,7 +4,7 @@ Saegus Inferno Boilerplate
 Mode d'emploi
 ----
 
-Il est fortement recommandé de mettre à jour `npm` à une version >=5.0.0 en faisant `npm upgrade -g npm`. Cela permettra entre autres de prendre avantage du `package-lock.json`.  
+Il est fortement recommandé d'utiliser une version de `node` supérieure ou égale à `8.x.x`. 
 
 Environnement de développement : `npm start` (`http://localhost:8080`)  
 Construction pour la production : `npm run build` (dossier de destination : `build`)
@@ -26,7 +26,7 @@ Technologies
 
 ### Développement
 
-* [Webpack 2](https://webpack.js.org/), constructeur de paquets de modules JavaScript permettant entre autres la minification du code, du *tree-shaking* (tente de débarasser le code des fonctionnalités non utilisées) et la gestion de modules JavaScript
+* [Webpack 3](https://webpack.js.org/), constructeur de paquets de modules JavaScript permettant entre autres la minification du code, du *tree-shaking* (tente de débarasser le code des fonctionnalités non utilisées) et la gestion de modules JavaScript
 * [BrowserSync](https://www.browsersync.io/), recharge automatiquement les navigateurs ouverts sur la page de l'application à chaque build Webpack (NB: le Hot Module Replacement de Webpack n'est pas évident à mettre en place pour Inferno), répand un parcours (clics, inputs) vers tous les navigateurs
 * [Prettier](https://github.com/prettier/prettier), formatteur automatique de fichiers JavaScript/JSX ES6
 
