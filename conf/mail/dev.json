@@ -1,0 +1,14 @@
+{
+  "pool": true,
+  "host": "smtp.office365.com",
+  "port": 587,
+  "secure": false,
+  "auth": {
+    "user": "exemple@email.com",
+    "pass": "Saegus2017"
+  },
+  "requireTLS": true,
+  "tls": {
+    "ciphers": "SSLv3"
+  }
+}
