@@ -1,0 +1,15 @@
+{
+  "name": "php-boilerplate",
+  "description": "Toolchain for developing in PHP",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "./node_modules/.bin/npm-run-all --parallel gulp php-fpm caddy",
+    "gulp": "gulp",
+    "php-fpm": "php-fpm -y ./php-fpm.conf -n -p ./",
+    "caddy": "./caddy"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "npm-run-all": "^4.0.2"
+  }
+}
