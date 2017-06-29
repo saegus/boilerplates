@@ -1,4 +1,4 @@
-Saegus Inferno Boilerplate
+Saegus React Boilerplate
 ==========
 
 Mode d'emploi
@@ -27,7 +27,7 @@ Technologies
 ### Développement
 
 * [Webpack 3](https://webpack.js.org/), constructeur de paquets de modules JavaScript permettant entre autres la minification du code, du *tree-shaking* (tente de débarasser le code des fonctionnalités non utilisées) et la gestion de modules JavaScript
-* [BrowserSync](https://www.browsersync.io/), recharge automatiquement les navigateurs ouverts sur la page de l'application à chaque build Webpack (NB: le Hot Module Replacement de Webpack n'est pas évident à mettre en place pour Inferno), répand un parcours (clics, inputs) vers tous les navigateurs
+* [BrowserSync](https://www.browsersync.io/), recharge automatiquement les navigateurs ouverts sur la page de l'application à chaque build Webpack, répand un parcours (clics, inputs) vers tous les navigateurs
 * [Prettier](https://github.com/prettier/prettier), formatteur automatique de fichiers JavaScript/JSX ES6
 
 Guidelines
