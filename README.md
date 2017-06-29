@@ -14,8 +14,8 @@ Technologies
 
 ### JavaScript
 
-* [Inferno](https://infernojs.org/docs), librairie d'UI [React](https://facebook.github.io/react/docs)-like. Très léger (9kb gzipped), très fluide, donc judicieux dans un contexte mobile-first et [progressive apps](https://developers.google.com/web/progressive-web-apps/checklist)
-* (TODO) [Redux](http://redux.js.org/), gestionnaire d'états pour des librairies d'UI tels que React
+* [React](https://facebook.github.io/react/)
+* (TODO) [Redux](http://redux.js.org/), gestionnaire d'états pour des librairies d'UI telles que React
 * [Babel](https://babeljs.io/), cross-compiler de JavaScript/JSX ES6+ vers ES5 (entre autres)
 * [es5-shim](https://github.com/es-shims/es5-shim) et [es6-shim](https://github.com/paulmillr/es6-shim), polyfills implémentant des fonctions ES5/ES6 pour les navigateurs moins modernes
 
@@ -122,7 +122,7 @@ Aides
 ### Composant *stateless*
 
 ```jsx
-import Inferno from 'inferno';
+import React from 'react';
 import './style.scss';
 
 export default ({
@@ -139,17 +139,16 @@ export default ({
 ### Composant *stateful* (!= *stateless*)
 
 ```jsx
-import Inferno from 'inferno';
-import Component from 'inferno-component';
+import React from 'react';
 import Atom from 'atoms/Atom';
 import { handler } from './handlers';
 import './style.scss';
 
-export default class StatefulComponent extends Component {
+export default class StatefulComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = { data: '' };
-    this.handler = Inferno.linkEvent(this, handler);
+    this.handler = () => handler(this);
   }
   render() {
     return (
