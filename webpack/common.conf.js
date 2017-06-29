@@ -79,8 +79,8 @@ module.exports = {
           {
             loader: "babel-loader",
             query: {
-              presets: ["es2015"],
-              plugins: ["inferno", "transform-object-rest-spread"]
+              presets: ["react"],
+              plugins: ["transform-object-rest-spread"]
             }
           },
           "prettier-loader"

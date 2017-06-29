@@ -1,4 +1,4 @@
-import Inferno from "inferno";
+import React from "react";
 import "./style.scss";
 
 export default props =>

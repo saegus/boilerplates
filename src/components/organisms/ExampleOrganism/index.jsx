@@ -1,4 +1,4 @@
-import Inferno from "inferno";
+import React from "react";
 
 import ExampleButton from "components/atoms/ExampleButton";
 
@@ -8,6 +8,7 @@ export default ({ activePage, pages, onPage }) =>
   <div className="ExampleOrganism">
     {pages.map(page =>
       <div
+        key={page.id}
         className={[
           // This is one way to write multiple dynamic classes
           // You could also go with className={`ClassName ${prop ? 'ClassName--variant' : ''} ...`}

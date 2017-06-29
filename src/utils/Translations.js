@@ -14,7 +14,7 @@
 
   Usage in any Component:
   ```
-  import Inferno from 'inferno';
+  import React from 'react';
   import { tl } from 'utils/Translations'
 
   export default props =>

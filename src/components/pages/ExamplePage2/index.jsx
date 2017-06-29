@@ -1,5 +1,4 @@
-import Inferno from "inferno";
-import Component from "inferno-component";
+import React from "react";
 
 import { tl } from "utils/Translations";
 
@@ -8,11 +7,11 @@ import ExampleTemplate from "components/templates/ExampleTemplate";
 import Handlers from "./handlers";
 import "./style.scss";
 
-export default class ExamplePage2 extends Component {
+export default class ExamplePage2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = { message: "" };
-    this.onClick = Inferno.linkEvent(this, Handlers.onClick);
+    this.onClick = () => Handlers.onClick(this);
   }
 
   render() {

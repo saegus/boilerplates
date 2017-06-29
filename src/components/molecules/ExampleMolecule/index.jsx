@@ -1,4 +1,4 @@
-import Inferno from "inferno";
+import React from "react";
 
 import ExampleButton from "components/atoms/ExampleButton";
 import ExampleAtom from "components/atoms/ExampleAtom";

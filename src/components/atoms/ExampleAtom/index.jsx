@@ -1,4 +1,4 @@
-import Inferno from "inferno";
+import React from "react";
 
 import "assets/images/saegus__logo.png";
 

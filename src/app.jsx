@@ -1,4 +1,5 @@
-import Inferno from "inferno";
+import React from "react";
+import ReactDOM from "react-dom";
 import App from "components/pages/App";
 
 import EN_1 from "translations/page1.en.json";
@@ -16,4 +17,4 @@ import "./index.html";
 if (getLanguage() === "en") [EN_1, EN_2].map(use);
 else [FR_1, FR_2].map(use);
 
-Inferno.render(<App />, document.getElementById("root")); // eslint-disable-line
+ReactDOM.render(<App />, document.getElementById("root")); // eslint-disable-line

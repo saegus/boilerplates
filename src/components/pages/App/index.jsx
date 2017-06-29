@@ -1,5 +1,4 @@
-import Inferno from "inferno";
-import Component from "inferno-component";
+import React from "react";
 
 import { tl } from "utils/Translations";
 
@@ -11,7 +10,7 @@ import ExampleNav from "components/templates/ExampleNav";
 import Handlers from "./handlers";
 import "./style.scss";
 
-export default class App extends Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { page: {} };
