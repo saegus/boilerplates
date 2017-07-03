@@ -1,0 +1,63 @@
+@import 'variables';
+
+.Todo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1em 2em;
+  position: relative;
+
+  &--checked {
+    opacity: .5;
+
+    .Todo__check {
+      background: $color--background;
+      &::before {
+        content: '✓';
+        font-size: 3em;
+        color: $color--secondary;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  &__check {
+    flex-shrink: 0;
+    position: relative;
+    appearance: none;
+    height: 4em;
+    width: 4em;
+    border: 1px solid #aaa;
+    margin-right: 1em;
+    cursor: pointer;
+
+    &:hover {
+      background: $color--emphasis;
+    }
+  }
+
+  &__label {
+    padding-right: 1em;
+  }
+
+  &__delete {
+    opacity: .6;
+    cursor: pointer;
+    color: $color--secondary;
+    appearance: none;
+    font-size: 2em;
+    background: none;
+    border: none;
+    position: absolute;
+    right: .5em;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

@@ -5,13 +5,23 @@
   <title>Project name</title>
   <meta property="og:title" content="Project name">
   <meta property="og:description" content="Project description">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <!--[if IE]>
-    <script type="text/javascript" src="polyfills.js"></script>
-  <![endif]-->
-  <div id="root"></div>
-  <script src="bundle.js"></script>
-</body>
+  <script type="text/javascript">
+    if (!Object.assign) {
+      var el = document.createElement('script');
+      el.async = false;
+      el.src = 'ie-polyfills.js';
+      el.type = 'text/javascript';
+      (document.getElementsByTagName('HEAD')[0]||document.body).appendChild(el);
+    }
+    var el2 = document.createElement('script');
+    el2.async = false;
+    el2.src = 'bundle.js';
+    el2.type = 'text/javascript';
+    (document.getElementsByTagName('HEAD')[0] || document.body).appendChild(el2);
+  </script>
+</head><body><div id="root"></div></body>
 </html>

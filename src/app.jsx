@@ -1,20 +1,47 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "components/pages/App";
+import { HashRouter, Route, Redirect } from "react-router-dom";
 
-import EN_1 from "translations/page1.en.json";
-import FR_1 from "translations/page1.fr.json";
-import EN_2 from "translations/page2.en.json";
-import FR_2 from "translations/page2.fr.json";
-import { getLanguage, use } from "utils/Translations";
+import Login from "pages/Login";
+import Activity from "pages/Activity";
+
+import AuthStore from "stores/AuthStore";
+import TodoStore from "stores/TodoStore";
 
 import "assets/fonts/roboto/regular.ttf";
 import "assets/fonts/roboto/bold.ttf";
 import "scss/fonts.scss";
+import "scss/global.scss";
 
 import "./index.html";
 
-if (getLanguage() === "en") [EN_1, EN_2].map(use);
-else [FR_1, FR_2].map(use);
+const authStore = new AuthStore();
+const todoStore = new TodoStore();
 
-ReactDOM.render(<App />, document.getElementById("root")); // eslint-disable-line
+const ProtectedRoute = ({ component: Component, ...rest }) =>
+  <Route
+    {...rest}
+    render={props =>
+      authStore.user
+        ? <Component {...props} />
+        : <Redirect
+            to={{
+              pathname: "/",
+              state: { from: props.location }
+            }}
+          />}
+  />;
+
+const App = ({ store }) =>
+  <HashRouter>
+    <div className="App">
+      <Route exact path="/" component={() => <Login store={authStore} />} />
+      <ProtectedRoute
+        path="/activity"
+        component={() =>
+          <Activity todoStore={todoStore} authStore={authStore} />}
+      />
+    </div>
+  </HashRouter>;
+
+ReactDOM.render(<App store={authStore} />, document.getElementById("root"));

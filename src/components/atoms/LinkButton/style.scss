@@ -1,0 +1,18 @@
+@import 'variables';
+
+.LinkButton {
+  font-size: 1em;
+  background: none;
+  border: none;
+  appearance: none;
+  opacity: .7;
+  color: inherit;
+  display: inline;
+  padding: 0;
+  cursor: pointer;
+  font-family: $font-family--regular;
+
+  &:hover {
+    opacity: 1;
+  }
+}

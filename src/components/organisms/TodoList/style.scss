@@ -1,0 +1,18 @@
+@import 'variables';
+
+.TodoList {
+  min-width: 20em;
+  width: 33%;
+  background: #fafafa;
+  box-shadow: 1px 1px 20px #bbb;
+
+  &__body {
+    max-height: calc(100vh - 20em);
+    overflow-y: auto;
+    .Todo {
+      &:nth-child(odd) {
+        background: #f4f4f4;
+      }
+    }
+  }
+}

@@ -15,7 +15,7 @@ Technologies
 ### JavaScript
 
 * [React](https://facebook.github.io/react/)
-* (TODO) [Redux](http://redux.js.org/), gestionnaire d'états pour des librairies d'UI telles que React
+* [MobX](https://mobx.js.org/), gestionnaire d'états pour des librairies d'UI telles que React
 * [Babel](https://babeljs.io/), cross-compiler de JavaScript/JSX ES6+ vers ES5 (entre autres)
 * [es5-shim](https://github.com/es-shims/es5-shim) et [es6-shim](https://github.com/paulmillr/es6-shim), polyfills implémentant des fonctions ES5/ES6 pour les navigateurs moins modernes
 
@@ -35,9 +35,9 @@ Guidelines
 
 ### Structure de projet
 
-* Fortement inspiré de l'[Atomic/Pattern Design](http://patternlab.io/) : hiérarchie de composants en `atoms`, `molecules`, `organisms`, `templates` et `pages`.
+* Fortement inspiré de l'[Atomic/Pattern Design](http://patternlab.io/) : hiérarchie de composants en `atoms`, `molecules`, `organisms`, puis `pages` (`templates` a moins de raison d'être dans un projet React).
 * On regroupe les composants réutilisables (`<= organisms`) dans un dossier `components`
-* Pour les gros projets, il est possible de séparer l'application en modules de `templates` et de `pages` soit en pages séparées, soit reliés par un `index.jsx` principal, avec le dossier `components` en commun pour les composants réutilisables (`<= organisms`) :
+* Pour les gros projets, il est possible de séparer l'application en modules de `pages` soit en pages séparées (un `index.html` dans chaque dossier), soit reliés par un `index.jsx` principal, avec le dossier `components` en commun pour les composants réutilisables (`<= organisms`) :
   ```
   src
   |- components
@@ -46,25 +46,24 @@ Guidelines
   |--- organisms
   |- modules
   |--- module1
-  |----- templates
-  |----- pages
-  |----- index.jsx
+  |----- page1A
+  |----- page1B
   |--- module2
-  |----- templates
+  |----- page2A
+  |----- page2B
   |----- ...
   ```
-* Composants séparés par dossiers contenant `index.jsx` (template + initialisation), `style.scss` (SCSS) et `handlers.jsx` (non nécessaire pour les composants *stateless*; gestion de la logique du composant)
+* Composants séparés par dossiers contenant `index.jsx` (template + initialisation) et `style.scss` (SCSS)
 * Dossier `assets` pour les fichiers externes à importer (images, vidéos, polices...)
 * Dossier `scss` pour le setup SCSS général : polices, variables, mixins et normalisation
 * Dossier `utils` pour les utilitaires généraux : Http, Translations...
 
 ### Général
 
-* Tabsize de 2 (espaces)
 * Minimalisme et optimisation par rapport aux modules externes (3rd party) : faire attention aux effets de bord, au poids du package final...
 * Conformément aux principes de l'Atomic Design :
-  * Les appels d'API et la modification d'états généraux ne doivent se faire qu'à partir de handlers de `pages`
-  * Il est préférable que les `templates`, `atoms`, `molecules` et `organisms` soient *stateless*. Cependant, il est parfois nécessaire d'implémenter des composants *stateful* pour ceux touchant au DOM (e.g. autoscroll, autofocus...).
+  * Les appels d'API et la modification d'états généraux ne doivent se faire qu'à partir de handlers de `pages`, qui eux-mêmes font appel à des méthodes des `stores`
+  * Il est préférable que les `atoms`, `molecules` et `organisms` soient *stateless*. Cependant, il est parfois nécessaire d'implémenter des composants *stateful* pour ceux touchant au DOM (e.g. autoscroll, autofocus...) ou les forms (pour intégrer les `onChange` des inputs).
 
 
 ### JavaScript
@@ -112,9 +111,8 @@ Guidelines
   }
   ```
 * Ne pas accumuler plus de 3 niveaux d'inclusion (séparer en un sous-composant quand ça doit arriver)
-* (Expérimental) Variables :
-  * Variabiliser les styles des composants dans un fichier `variables.scss` par composant, seul fichier de variable inclus dans le `style.scss` du même dossier
-  * Lorsque c'est possible, faire découler les valeurs de ces variables du contexte du projet (`@import 'scss/variables.scss'`). Notamment, les `z-index` doivent être recensés dans le contexte projet `scss/variables.scss`.
+* Variabiliser les styles des composants à la tête des `style.scss` des composants
+* Lorsque c'est possible, faire découler les valeurs de ces variables du contexte du projet (`@import 'scss/variables.scss'`). Notamment, les `z-index` doivent être recensés dans le contexte projet `scss/variables.scss`.
 
 Aides
 ---
@@ -166,7 +164,6 @@ TODO
 ----
 
 * Utilisation concrète de `Http`
-* Exemple de Redux
 * Implémenter un exemple de "service worker" pour le contexte Progressive Web App
 * Dockeriser l'environnement de dev pour éviter les problèmes dûs à la différence entre les environnements
 * Ajouter le `manifest.json`

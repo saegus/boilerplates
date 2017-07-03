@@ -1,0 +1,12 @@
+[
+  {"id": 1, "label": "Do the groceries once, twice, three times, four times, five times, six times, seven times, and then one last time.", "checked": true},
+  {"id": 2, "label": "Clean the room", "checked": false},
+  {"id": 3, "label": "Clean the windows", "checked": true},
+  {"id": 4, "label": "Buy that CD", "checked": false},
+  {"id": 5, "label": "Refuel the car", "checked": false},
+  {"id": 6, "label": "Find the garage keys", "checked": false},
+  {"id": 7, "label": "Watch that TV show", "checked": true},
+  {"id": 8, "label": "Buy that ticket train", "checked": false},
+  {"id": 9, "label": "Eat vegetables", "checked": true},
+  {"id": 10, "label": "Do cardio", "checked": true}
+]

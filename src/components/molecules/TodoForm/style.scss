@@ -1,0 +1,14 @@
+.TodoForm {
+  padding: .5em 1em;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+
+  .TextInput {
+    flex: 1;
+    &__input {
+      height: 100%;
+      border-right-width: 0;
+    }
+  }
+}

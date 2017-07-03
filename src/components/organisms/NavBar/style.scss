@@ -1,0 +1,30 @@
+@import 'variables';
+
+.NavBar {
+  background: $color--alt-background;
+  color: $color--alt-text;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  position: relative;
+
+  .Logo {
+    font-size: .6em;
+  }
+
+  .SearchInput {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    min-width: 10em;
+    width: 33%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__user {
+    text-align: right;
+  }
+}

@@ -14,7 +14,10 @@ module.exports = {
     modules: [
       path.resolve(__dirname, "..", "node_modules"),
       path.resolve(__dirname, "..", "src")
-    ]
+    ],
+    alias: process.env.MOCK ? {
+      'factories': 'factories/mocks',
+    } : undefined,
   },
   entry: {
     polyfills: ["es5-shim", "es6-shim"],
@@ -79,8 +82,8 @@ module.exports = {
           {
             loader: "babel-loader",
             query: {
-              presets: ["react"],
-              plugins: ["transform-object-rest-spread"]
+              presets: ["react", "es2015", "stage-1"],
+              plugins: ["transform-object-rest-spread", "transform-decorators-legacy"]
             }
           },
           "prettier-loader"

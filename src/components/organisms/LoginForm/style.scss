@@ -1,0 +1,26 @@
+.LoginForm {
+  width: 20em;
+  height: 20em;
+  background: #fafafa;
+  text-align: center;
+  position: relative;
+
+  &__logo {
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    .Logo { display: inline-block; }
+  }
+
+  .TextInput {
+    margin: 1em auto;
+    width: 15em;
+  }
+
+  &__submit {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+}
