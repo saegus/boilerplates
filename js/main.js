@@ -1,2 +1,2 @@
 console.log('Hello, world!');
-console.log('lodash', _.VERSION);
+console.log('this is jQuery', $);

@@ -17,6 +17,8 @@
     "postcss-cssnext": "^2.9.0"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
     "lodash": "^4.17.4"
   }
 }

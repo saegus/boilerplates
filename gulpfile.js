@@ -7,7 +7,12 @@ const Concat = require('gulp-concat');
 const Uglify = require('gulp-uglify');
 const BrowserSync = require('browser-sync').create();
 
-Gulp.task('sass', () => Gulp.src('./scss/main.scss')
+Gulp.task('sass', () => Gulp.src([
+  // Example to add CSS dependencies from npm (after doing `npm install bootstrap`):
+  // (to get the /dist/... path, just look into the corresponding "node_modules" folder)
+  require.resolve('bootstrap/dist/css/bootstrap.min.css'),
+  './scss/main.scss'
+])
   .pipe(Sass().on('error', Sass.logError))
   .pipe(PostCSS([ CSSNext() ]))
   .pipe(Concat('style.css'))
@@ -17,8 +22,10 @@ Gulp.task('sass', () => Gulp.src('./scss/main.scss')
 );
 
 Gulp.task('js', () => Gulp.src([
-  // Example to add dependencies from npm:
-  require.resolve('lodash'),
+  // Example to add dependencies from npm (after doing `npm install jquery` and `npm install bootstrap`):
+  // (to get the /dist/... path, just look into the corresponding "node_modules" folder)
+  require.resolve('jquery/dist/jquery.slim.min'),
+  require.resolve('bootstrap/dist/js/bootstrap'),
   './js/**/*.js',
 ])
   .pipe(Concat('bundle.js'))
