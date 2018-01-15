@@ -2,6 +2,7 @@ const webpack = require("webpack"); // eslint-disable-line
 const webpackMerge = require("webpack-merge"); // eslint-disable-line
 const commonConfig = require("./common.conf");
 const path = require("path");
+const sso = require("../sso.config.json");
 
 module.exports = webpackMerge(commonConfig, {
   devtool: "source-map",
@@ -35,7 +36,8 @@ module.exports = webpackMerge(commonConfig, {
     }),
     new webpack.DefinePlugin({
       "process.env": {
-        NODE_ENV: JSON.stringify("production") // required for Inferno production build
+        NODE_ENV: JSON.stringify("production"),
+        SSO: JSON.stringify(sso)
       }
     })
   ]

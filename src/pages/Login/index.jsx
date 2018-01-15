@@ -14,11 +14,7 @@ use(window.localStorage.getItem("lang") === "fr" ? tlFR : tlEN);
 
 export default observer(({ store }) =>
   <div className="Login">
-    <LoginForm
-      onLogin={credentials => {
-        store.logIn(credentials);
-      }}
-    />
+    <LoginForm onLogin={() => store.logIn()} />
     {/* This redirects the user to the activity page if they are already logged in */}
     {store.user && <Redirect to="/activity" />}
   </div>

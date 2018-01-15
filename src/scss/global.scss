@@ -11,3 +11,11 @@ html, body, #root, .App {
   width: 100vw;
   height: 100vh;
 }
+
+html {
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}

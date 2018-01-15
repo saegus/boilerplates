@@ -13,6 +13,7 @@
 
   .Logo {
     font-size: .6em;
+    flex: 1;
   }
 
   .SearchInput {
@@ -26,5 +27,6 @@
 
   &__user {
     text-align: right;
+    margin: 0 1em;
   }
 }

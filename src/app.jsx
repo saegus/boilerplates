@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
 
 import Login from "pages/Login";
 import Activity from "pages/Activity";
@@ -33,7 +33,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) =>
   />;
 
 const App = ({ store }) =>
-  <HashRouter>
+  <BrowserRouter>
     <div className="App">
       <Route exact path="/" component={() => <Login store={authStore} />} />
       <ProtectedRoute
@@ -42,6 +42,6 @@ const App = ({ store }) =>
           <Activity todoStore={todoStore} authStore={authStore} />}
       />
     </div>
-  </HashRouter>;
+  </BrowserRouter>;
 
 ReactDOM.render(<App store={authStore} />, document.getElementById("root"));

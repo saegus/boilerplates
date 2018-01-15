@@ -14,13 +14,16 @@ export default ({ user, onSearch, onLogOut }) =>
     <Logo />
     <SearchInput placeholder={tl("SEARCH")} onSearch={onSearch} />
     <div className="NavBar__user">
+      <div>{user.name}</div>
+      <div>{user.email}</div>
+    </div>
+    <div className="NavBar__actions">
       <div>
         <LinkButton onClick={() => setLanguage("fr")}>
           FR
         </LinkButton>&nbsp;&nbsp;
         <LinkButton onClick={() => setLanguage("en")}>EN</LinkButton>
       </div>
-      <div>{user.email}</div>
       <LinkButton onClick={onLogOut}>{tl("LOG_OUT")}</LinkButton>
     </div>
   </div>;

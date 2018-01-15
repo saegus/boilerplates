@@ -1,9 +1,0 @@
-{
-  "host": "localhost",
-  "port": 8080,
-  "server": { "baseDir": ["dist"] },
-  "files": [
-    "dist/**/*",
-    "!dist/*.map"
-  ]
-}

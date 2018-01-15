@@ -1,5 +1,6 @@
 {
   "EMAIL": "E-mail address",
   "PASSWORD": "Password",
-  "LOG_IN": "Log in"
+  "LOG_IN": "Log in",
+  "LOG_IN_WITH_OFFICE_365": "Log in with Office 365"
 }
