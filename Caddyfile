@@ -1,4 +1,4 @@
 :8080 {
-  root dist
+  root public
   fastcgi / 127.0.0.1:9000 php
 }
